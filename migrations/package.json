@@ -1,0 +1,41 @@
+{
+    "name": "amagi-academy-backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "apollo-server-koa": "^2.0.0",
+      "dotenv-safe": "^6.0.0",
+      "graphql": "^0.13.2",
+      "jsonwebtoken": "^8.3.0",
+      "koa": "^2.5.2",
+      "koa-router": "^7.4.0",
+      "merge-graphql-schemas": "^1.5.3",
+      "node-pg-migrate": "^3.8.0",
+      "once": "^1.4.0",
+      "pg-async": "^3.1.0",
+      "raven": "^2.6.3",
+      "squel": "^5.12.2"
+    },
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-eslint": "^8.2.6",
+      "babel-plugin-root-import": "^5.1.0",
+      "babel-plugin-syntax-async-functions": "^6.13.0",
+      "babel-plugin-transform-object-rest-spread": "^6.22.0",
+      "babel-preset-env": "^1.7.0",
+      "chai": "^4.1.2",
+      "chai-subset": "^1.6.0",
+      "eslint": "^5.1.0",
+      "eslint-plugin-babel": "^5.1.0",
+      "mocha": "^5.2.0",
+      "nodemon": "^1.18.3",
+      "supertest": "^3.1.0"
+    },
+    "scripts": {
+      "start": "nodemon src/index.js --exec babel-node --dev",
+      "migrate": "./node_modules/.bin/node-pg-migrate up",
+      "test": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel-core/register --slow 1000 --timeout 15000 --recursive --reporter nyan test",
+      "test:ci": "NODE_ENV=testing ./node_modules/.bin/mocha --compilers js:babel-core/register --slow 1000 --timeout 15000 --recursive test"
+    }
+  }
